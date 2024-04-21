@@ -4,15 +4,15 @@ MASTER_HOST="10.0.1.10:6443"
 MASTER_TOKEN="(검열됨)"
 MASTER_CA_CERT_HASH="(검열됨)"
 
-# sudo iptables-save > ~/iptables-rules
+sudo iptables-save > ~/iptables-rules
 
-# grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
-# grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
+grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
+grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
 
-# sudo iptables-restore < ~/iptables-rules-mod
+sudo iptables-restore < ~/iptables-rules-mod
 
-# sudo netfilter-persistent save
-# sudo systemctl restart iptables
+sudo netfilter-persistent save
+sudo systemctl restart iptables
 
 sudo apt-get update
 sudo apt-get install ca-certificates curl

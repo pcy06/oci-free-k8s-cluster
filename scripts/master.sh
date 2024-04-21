@@ -5,15 +5,15 @@ POD_NETWORK_CIDR="172.16.0.0/16"
 SERVICE_CIDR="192.168.0.0/16"
 DEFAULT_USER="ubuntu"
 
-# sudo iptables-save > ~/iptables-rules
+sudo iptables-save > ~/iptables-rules
 
-# grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
-# grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
+grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
+grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
 
-# sudo iptables-restore < ~/iptables-rules-mod
+sudo iptables-restore < ~/iptables-rules-mod
 
-# sudo netfilter-persistent save
-# sudo systemctl restart iptables
+sudo netfilter-persistent save
+sudo systemctl restart iptables
 
 sudo apt-get update
 sudo apt-get install ca-certificates curl
