@@ -13,7 +13,7 @@ data "oci_core_images" "ubuntu-22-04-arm" {
     operating_system = "Canonical Ubuntu"
     filter {
         name   = "display_name"
-        values = ["^Canonical-Ubuntu-22.04-aarch64-([\\.0-9-]+)$"]
+        values = ["^Canonical-Ubuntu-22.04-Minimal-aarch64-([\\.0-9-]+)$"]
         regex = true
     }
 }
