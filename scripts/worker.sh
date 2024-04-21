@@ -60,7 +60,11 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
 
-sudo rm -rf /etc/containerd/config.toml
+sudo mkdir -p /etc/containerd/
+
+containerd config default | sudo tee /etc/containerd/config.toml
+
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 sudo systemctl restart containerd
 
 while true; do
